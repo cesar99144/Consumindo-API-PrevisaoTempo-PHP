@@ -14,7 +14,7 @@
 
 <figure>
  	<figcaption>Buscando por cidades</figcaption>
-    <img src="imagens/pesquisaPadrão.png"/>
+    <img src="imagens/pesquisaPadrao.png"/>
     <img src="imagens/pesquisaRecife.png">
 </figure>
 <figure>
