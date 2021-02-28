@@ -23,5 +23,5 @@
 </figure>
 <figure>
  	<figcaption>Cidades:</figcaption>
-    <img src="imagens/TodasCidades.png"/>
+    <img src="imagens/TodasCidades.PNG"/>
 </figure>
