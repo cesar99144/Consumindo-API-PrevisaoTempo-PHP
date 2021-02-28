@@ -3,17 +3,24 @@
   //Verifica se foi realizado a busca de alguma cidade
   if(isset($_GET['buscar'])){
 
-  	$codigoCidade = $_GET['cidade'];
+  	$nomeCidade = $_GET['cidade'];
+	$siglaEstado = $_GET['estados'];
+
+	$NomeComSigla = $nomeCidade.','.$siglaEstado;
 
   }else{
 
     //Caso não tenha sido, é atribuido por padrão o código de pesquisa da cidade de caruaru
-  	$codigoCidade = "455852";
+
+  	$nomeCidade = 'Caruaru';
+	$siglaEstado = 'PE';
+
+	$NomeComSigla = $nomeCidade.','.$siglaEstado;
 
 
   }
 
-  	$url = "https://api.hgbrasil.com/weather?woeid=".$codigoCidade."&key=110c5339";
+  	$url = "https://api.hgbrasil.com/weather?key=110c5339&city_name=".$NomeComSigla;
 
     //Buscando informações da cidade na APi através do curl
   	$ch = curl_init($url); 
@@ -21,6 +28,14 @@
 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
 	$previsao = json_decode(curl_exec($ch));
 
+	//buscar cidades pernambuco
+	$urlCidades = "https://servicodados.ibge.gov.br/api/v1/localidades/estados/26/municipios";
+	$buscaCidades = curl_init($urlCidades);
+	curl_setopt($buscaCidades, CURLOPT_RETURNTRANSFER, true); 
+	curl_setopt($buscaCidades, CURLOPT_SSL_VERIFYPEER, false); 
+	$cidades = json_decode(curl_exec($buscaCidades));
+	sort($cidades);
+	
 ?>
 
 
@@ -33,16 +48,27 @@
 	</head>
 	<body>
 		<form action="" method="GET" class="form-cidade">
-			<select name="cidade" class="cidade">
-				<option onselect>Selecionar cidade</option>
-				<option value="455852">Caruaru</option>
-				<option value="455950">Garanhuns</option>
-				<option value="456398">Paulista </option>
-				<option value="455980">Petrolina</option>
-				<option value="455824">Recife</option>
-				<option value="461334">Tamandaré</option>
-			</select>
-			<button class="butao-bsucar" name="buscar" type="submit"><span class="sr-only">Buscar</span></button>
+		<div class="selectsBusca">
+			<div class="coluna-select">
+				<select name="estados" class="estado">
+					<option value="PE" onselect>Pernambuco</option>
+				</select>
+			</div>
+			<div class="coluna-select">
+				<select name="cidade" class="cidade">
+					<option onselect>Selecionar cidade</option>
+						<?php foreach($cidades as $cidadesResultado): ?>
+
+							<option value="<?php echo $cidadesResultado->nome; ?>"><?php echo $cidadesResultado->nome; ?></option>
+
+						<?php endforeach; ?>
+				</select>
+			</div>
+			<div id="button" class="coluna-select">
+				<button class="butao-bsucar" name="buscar" type="submit"><span class="sr-only">Buscar</span></button>
+			</div>
+			</div>
+
 		</form>
 	<div class="exibePrevisao">
         <!--Carrega informações do dia atual -->

@@ -3,7 +3,7 @@
 
  <a target="_blank" href="https://console.hgbrasil.com/documentation/weather">Documentação da Api HG Weather</a><br>
  
- <p>Para realizar a busca na Api, é necessário informar o código da cidade, que pode ser consultado <a target="_blank" href="https://console.hgbrasil.com/documentation/weather/tools">Nesse link</a>.  Como o objetivo era apenas consumir os dados a nível de estudo e prática eu decidi inserir apenas algumas cidades no projeto.
+ <p>Para realizar a busca na Api, é necessário informar o código da cidade, que pode ser consultado <a target="_blank" href="https://console.hgbrasil.com/documentation/weather/tools">Nesse link</a>. Todas as cidades do estado de Pernambuco estão disponíveis para consulta.
 
  <h3>Requisitos:</h3>
     <blockquote>
@@ -22,6 +22,6 @@
     <img src="imagens/pesquisaRecife.png">
 </figure>
 <figure>
- 	<figcaption>Cidades disponíveis</figcaption>
-    <img src="imagens/cidades.png"/>
+ 	<figcaption>Cidades:</figcaption>
+    <img src="imagens/TodasCidades.png"/>
 </figure>
