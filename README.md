@@ -1,5 +1,5 @@
 # Consumindo-API-PrevisaoTempo
- Projeto web para buscar informações sobre previsões do tempo e dados climáticos de algumas cidades do estado de pernambuco, utilizando PHP e a Api HG Weather.
+ Projeto web para buscar informações sobre previsões do tempo e dados climáticos de todas as cidades do estado de pernambuco, utilizando PHP e a Api HG Weather.
 
  <a target="_blank" href="https://console.hgbrasil.com/documentation/weather">Documentação da Api HG Weather</a><br>
  
